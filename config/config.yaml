@@ -1,0 +1,7 @@
+token: "your-telegram-bot-token"
+postgres:
+  host: "localhost"
+  port: "12000"
+  user: "myuser"
+  password: "mypassword"
+  dbname: "mydb"
