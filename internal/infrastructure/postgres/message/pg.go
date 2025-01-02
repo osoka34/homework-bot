@@ -2,6 +2,7 @@ package message
 
 import (
 	"context"
+	"strings"
 	"time"
 
 	"gorm.io/gorm"
@@ -31,10 +32,10 @@ func (m *MessageRepository) GetOnTimeByChat(
 	start, end := utils.GetLastSundayRange()
 	if err = m.db.WithContext(ctx).
 		Where(
-			"create_at BETWEEN ? AND ? AND pattern = ? AND group_id = ?",
+			"create_at BETWEEN ? AND ? AND pattern like ? AND group_id = ?",
 			start,
 			end,
-			pattern,
+			strings.Join([]string{"%", pattern, "%"}, ""),
 			chat).
 		Find(&messages).
 		Error; err != nil {

@@ -16,6 +16,7 @@ func InitJSONLogger() (*zap.Logger, error) {
 	cfg.EncoderConfig.LevelKey = "level"
 	cfg.EncoderConfig.MessageKey = "message"
 	cfg.EncoderConfig.CallerKey = "caller"
+	cfg.Encoding = "json"
 
 	cfg.EncoderConfig.EncodeLevel = zapcore.LowercaseLevelEncoder
 

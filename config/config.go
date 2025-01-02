@@ -19,7 +19,7 @@ type PostgresConfig struct {
 	DBName   string `mapstructure:"dbname"`
 }
 
-func LoadConfig(path string) (*Config, error) {
+func LoadConfig() (*Config, error) {
 	viper.SetConfigFile("./config/config.yaml")
 	viper.SetConfigType("yaml")
 
